@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Sentiment Analyzer</title>
+
+    <style>
+
+        body { font-family: Arial; margin: 40px; }
+
+        textarea { width: 600px; height: 150px; }
+
+        button { padding: 10px 20px; margin-top: 10px; }
+
+        #result { margin-top: 20px; white-space: pre-wrap; }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Sentiment Analyzer</h1>
+
+ 
+
+    <textarea id=”feedback”></textarea><br>
+
+    <button onclick=”analyze()”>Analyze Sentiment</button>
+
+ 
+
+    <div id=”result”></div>
+
+ 
+
+    <script>
+
+        const API_URL = “YOUR_API_GATEWAY_URL“;
+
+ 
+
+        async function analyze() {
+
+            const text = document.getElementById(“feedback”).value;
+
+            if (!text) return alert(“Enter some text first!”);
+
+ 
+
+            try {
+
+                const response = await fetch(API_URL, {
+
+                    method: “POST”,
+
+                    headers: { “Content-Type”: “application/json” },
+
+                    body: JSON.stringify({ text })
+
+                });
+
+ 
+
+                const result = await response.json();
+
+                document.getElementById(“result”).innerText =
+
+                    JSON.stringify(result, null, 2);
+
+            } catch (err) {
+
+                document.getElementById(“result”).innerText =
+
+                    “Error calling API.”;
+
+                console.error(err);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+ 
+
+</html>
