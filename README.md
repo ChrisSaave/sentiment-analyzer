@@ -137,7 +137,8 @@ Example JSON body:
   "text": "This is an example sentence."
 }
 
-))
+)
+</head>
 CORS Notes
 
 If the HTML file is opened directly using a file:/// URL, the browser will block requests due to CORS.
