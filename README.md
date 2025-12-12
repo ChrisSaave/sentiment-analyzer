@@ -1,10 +1,10 @@
-# 🧠 Sentiment Analyzer (AWS Serverless Project)
+# Sentiment Analyzer (AWS Serverless Project)
 
 A lightweight web application that analyzes customer feedback in real time using **AWS Lambda**, **Amazon Comprehend**, and **API Gateway**. The frontend is a simple HTML/JavaScript page that sends text to a serverless backend for sentiment classification.
 
 ---
 
-## 🚀 Architecture Overview
+## Architecture Overview
 
 User → Browser (HTML + JS)
 → API Gateway (POST /sentiment)
@@ -16,7 +16,7 @@ User → Browser (HTML + JS)
 
 ---
 
-## 🛠 AWS Services Used
+## AWS Services Used
 
 - **Amazon Comprehend** — Performs sentiment analysis  
 - **AWS Lambda** — Backend Python logic  
@@ -26,7 +26,7 @@ User → Browser (HTML + JS)
 
 ---
 
-## 📁 Project Files
+## Project Files
 
 | File | Description |
 |------|-------------|
@@ -36,7 +36,7 @@ User → Browser (HTML + JS)
 
 ---
 
-## 🔧 Lambda Function (Python)
+## Lambda Function (Python)
 
 ```python
 import json
