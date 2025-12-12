@@ -1,28 +1,28 @@
+Author: Chris Saave
 # Sentiment Analyzer (AWS Serverless Project)
 
-A lightweight web application that analyzes customer feedback in real time using **AWS Lambda**, **Amazon Comprehend**, and **API Gateway**. The frontend is a simple HTML/JavaScript page that sends text to a serverless backend for sentiment classification.
+This project is a lightweight web application that analyzes customer feedback in real time using AWS Lambda, Amazon Comprehend, and API Gateway. The frontend is a simple HTML and JavaScript page that sends text to a serverless backend for sentiment classification.
 
 ---
 
 ## Architecture Overview
 
-User → Browser (HTML + JS)
-→ API Gateway (POST /sentiment)
-→ Lambda Function
-→ Amazon Comprehend
-→ Lambda returns sentiment result
-→ Browser displays output
-
+User → Browser (HTML + JS)  
+→ API Gateway (POST /sentiment)  
+→ Lambda Function  
+→ Amazon Comprehend  
+→ Lambda returns sentiment result  
+→ Browser displays output  
 
 ---
 
 ## AWS Services Used
 
-- **Amazon Comprehend** — Performs sentiment analysis  
-- **AWS Lambda** — Backend Python logic  
-- **API Gateway (HTTP API v2)** — Exposes REST endpoint  
-- **IAM** — Secure role allowing Lambda → Comprehend  
-- **Static Hosting or Website** — Hosts the frontend demo  
+- Amazon Comprehend – Sentiment analysis  
+- AWS Lambda – Backend Python function  
+- Amazon API Gateway (HTTP API v2) – REST endpoint  
+- AWS IAM – Execution role permissions  
+- Static website hosting – Frontend deployment  
 
 ---
 
@@ -30,9 +30,9 @@ User → Browser (HTML + JS)
 
 | File | Description |
 |------|-------------|
-| `lambda.py` | Lambda function that calls Comprehend |
-| `sentiment.html` | Frontend that sends POST requests to API Gateway |
-| `README.md` | Project documentation |
+| `lambda.py` | Lambda function code that calls Amazon Comprehend |
+| `sentiment.html` | Frontend interface that sends POST requests to API Gateway |
+| `README.md` | Documentation for the project |
 
 ---
 
@@ -78,6 +78,7 @@ def lambda_handler(event, context):
         "body": json.dumps(response)
     }
 
+Frontend (HTML and JavaScript)
 
 <!DOCTYPE html>
 <html>
@@ -116,8 +117,7 @@ def lambda_handler(event, context):
                 document.getElementById("result").innerText =
                     JSON.stringify(result, null, 2);
             } catch (err) {
-                document.getElementById("result").innerText =
-                    "Error calling API.";
+                document.getElementById("result").innerText = "Error calling API.";
                 console.error(err);
             }
         }
@@ -125,53 +125,33 @@ def lambda_handler(event, context):
 </body>
 </html>
 
-Testing With Postman
+Testing the API
 
-POST →
-https://your-api-id.execute-api.region.amazonaws.com/prod/sentiment
+Send a POST request to:
 
-JSON Body:
+https://input your invoke url here.
+
+Example JSON body:
+
 {
   "text": "This is an example sentence."
 }
-Common Issue: CORS Error "Origin null"
 
-Occurs when opening HTML via:
 
-file:///C:/...
+CORS Notes
 
-Fix: run a local development server:
+If the HTML file is opened directly using a file:/// URL, the browser will block requests due to CORS.
+
+Run a local development server instead:
+
 python -m http.server 8080
 
-
-Open in browser:
+Then open:
 http://localhost:8080/sentiment.html
+
 
 Live Project
 
-Live demo and full explanation available here:
+A full written explanation and deployed version of this project are available at:
 
 https://chrissaave.net/sentiment-analyzer/
-
-Video Tutorial (Coming Soon)
-
-Will include:
-
-IAM setup
-
-Lambda walkthrough
-
-API Gateway creation
-
-Testing with Postman
-
-Frontend build
-
-Fixing browser CORS
-
-Hosting the project
-
-Author
-
-Chris Saave
-AWS • AI • Serverless • Cloud Projects
