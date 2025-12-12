@@ -124,7 +124,9 @@ Frontend (HTML and JavaScript)
     </script>
 </body>
 </html>
-Testing the API
+
+
+//Testing the API
 
 Send a POST request to:
 
