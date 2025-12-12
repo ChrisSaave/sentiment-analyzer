@@ -124,7 +124,6 @@ Frontend (HTML and JavaScript)
     </script>
 </body>
 </html>
-
 Testing the API
 
 Send a POST request to:
@@ -138,9 +137,7 @@ Example JSON body:
 }
 
 )
-</script>
-</body>
-</html>
+
 
 CORS Notes
 
