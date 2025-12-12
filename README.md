@@ -138,7 +138,10 @@ Example JSON body:
 }
 
 )
-</head>
+</script>
+</body>
+</html>
+
 CORS Notes
 
 If the HTML file is opened directly using a file:/// URL, the browser will block requests due to CORS.
